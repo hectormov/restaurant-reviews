@@ -6,6 +6,9 @@ self.addEventListener('install', function(event) {
         caches.open(staticCacheName).then(function(cache) {
             cache.addAll([
                 //URLS TO ADD
+                // '/',
+                // '/index.html',
+                // '/restaurant.html'
                 // '/css/styles.css',
                 // '/js/dbhelper.js',
                 // '/js/main.js',
@@ -37,7 +40,7 @@ self.addEventListener('activate', function(event) {
 self.addEventListener('fetch', function(event) {
     //Save all pictures to Cache
     let url = event.request.url;
-    if(url.includes('jpg') || url.includes('.js') || url.includes('.css')) {
+    if(url.includes('jpg') || url.includes('.js') || url.includes('.css') || url.includes('.png')) {
         caches.open(staticCacheName).then(function(cache) {
             cache.add(url).catch(function (error) {
                 console.log('saving cache', error);
