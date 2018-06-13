@@ -7,7 +7,7 @@ if(!navigator.serviceWorker) {
     //If it doesn't exist, do nothing.
 }
 else {
-    navigator.serviceWorker.register('/sw.js');
+    navigator.serviceWorker.register(location.pathname + 'sw.js');
 }
 
 
