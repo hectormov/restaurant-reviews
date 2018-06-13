@@ -1,7 +1,7 @@
-let staticCacheName = 'restaurantsV2';
+let staticCacheName = 'restaurantsV1';
 
 //Creates the cache with all the required urls
-self.addEventListener('install', function(event) {
+// self.addEventListener('install'), function(event) {
     // event.waitUntil(
         // caches.open(staticCacheName).then(function(cache) {
         //     cache.addAll([
@@ -18,7 +18,7 @@ self.addEventListener('install', function(event) {
         //     console.log('Error creating cache', error);
         // })
     // );
-});
+// });
 
 //Deletes the old cache in case there is a new version
 self.addEventListener('activate', function(event) {
@@ -67,6 +67,8 @@ self.addEventListener('activate', function(event) {
 //     );
 // });
 
+//Aproach 2 Fetch everything, check if it exists on the cache and use that first, if not fetch it and add it to the cache then return it.
+//In case of error it just logs the error event.
 self.addEventListener('fetch', function (event) {
     event.respondWith(
         caches.match(event.request).then(function(response){

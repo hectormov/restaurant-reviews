@@ -10,6 +10,10 @@ class DBHelper {
   static get DATABASE_URL() {
     // const port = 8000 // Change this to your server port
     // return `http://localhost:${port}/data/restaurants.json`;
+    if (location.pathname.endsWith('.html')){
+      let path = location.pathname.substring(0, location.pathname.lastIndexOf('/'));
+      return location.origin + path + '/data/restaurants.json';
+    }
     return location.origin + location.pathname + `data/restaurants.json`;
   }
 
@@ -151,7 +155,11 @@ class DBHelper {
    * Restaurant image URL.
    */
   static imageUrlForRestaurant(restaurant) {
-    return (location.pathname + `img/${restaurant.photograph}`);
+    if (location.pathname.endsWith('.html')){
+      let path = location.pathname.substring(0, location.pathname.lastIndexOf('/'));
+      return location.origin + path + `/img/${restaurant.photograph}`;
+    }
+    return location.origin + location.pathname + `/img/${restaurant.photograph}`;
   }
 
   /**
