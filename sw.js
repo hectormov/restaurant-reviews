@@ -26,6 +26,8 @@ self.addEventListener('activate', function(event) {
                     return caches.delete(cacheName);
                 })
             );
+        }).catch(function (error) {
+            console.log('Deleting old cache error:', error);
         })
     );
 });
