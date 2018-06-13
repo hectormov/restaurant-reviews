@@ -6,9 +6,9 @@ self.addEventListener('install', function(event) {
         caches.open(staticCacheName).then(function(cache) {
             cache.addAll([
                 //URLS TO ADD
-                // '/',
-                // '/index.html',
-                // '/restaurant.html'
+                '/',
+                '/index.html',
+                '/restaurant.html'
                 // '/css/styles.css',
                 // '/js/dbhelper.js',
                 // '/js/main.js',
