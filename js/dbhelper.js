@@ -148,7 +148,12 @@ class DBHelper {
    * Restaurant page URL.
    */
   static urlForRestaurant(restaurant) {
-    return (`./restaurant.html?id=${restaurant.id}`);
+    // return (`./restaurant.html?id=${restaurant.id}`);
+    if (location.pathname.endsWith('.html')){
+      let path = location.pathname.substring(0, location.pathname.lastIndexOf('/'));
+      return location.origin + path + `./restaurant.html?id=${restaurant.id}`;
+    }
+    return location.origin + location.pathname + `./restaurant.html?id=${restaurant.id}`;
   }
 
   /**
