@@ -81,9 +81,9 @@ initMap = () => {
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token={mapboxToken}', {
     mapboxToken: 'pk.eyJ1IjoicGludG9idWxsIiwiYSI6ImNqaWI4NnNlczAzbjUza21sZmNtYThzdnQifQ.hNjNzCS6SJRBLL9zurxBLw',
     maxZoom: 18,
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-      '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-      'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/" tabindex="-1">OpenStreetMap</a> contributors, ' +
+      '<a href="https://creativecommons.org/licenses/by-sa/2.0/" tabindex="-1">CC-BY-SA</a>, ' +
+      'Imagery © <a href="https://www.mapbox.com/" tabindex="-1">Mapbox</a>',
     id: 'mapbox.streets'
   }).addTo(newMap);
 
@@ -159,8 +159,9 @@ createRestaurantHTML = (restaurant) => {
 
   const image = document.createElement('img');
   image.className = 'restaurant-img';
-  image.setAttribute('alt','Restaurant Picture');
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  //Included this line to add Alt attribute to the main page restaurant's pictures.
+  image.setAttribute('alt','Restaurant Picture');
   li.append(image);
 
   const name = document.createElement('h1');
