@@ -161,6 +161,8 @@ class DBHelper {
     let home = location.origin + location.pathname;
     if (location.pathname.endsWith('.html')){
       home = location.origin + location.pathname.substring(0, location.pathname.lastIndexOf('/'));
+      homeLink = document.querySelector('#breadcrumb a');
+      homeLink.setAttribute('href', home);
     }
     homeLink = document.querySelector('nav a');
     homeLink.setAttribute('href', home);
