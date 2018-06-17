@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   initMap(); // added
   fetchNeighborhoods();
   fetchCuisines();
+  DBHelper.updateHome();
 });
 
 /**
@@ -158,6 +159,7 @@ createRestaurantHTML = (restaurant) => {
 
   const image = document.createElement('img');
   image.className = 'restaurant-img';
+  image.setAttribute('alt','Restaurant Picture');
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
   li.append(image);
 

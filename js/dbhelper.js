@@ -156,6 +156,18 @@ class DBHelper {
     return location.origin + location.pathname + `./restaurant.html?id=${restaurant.id}`;
   }
 
+  static updateHome() {
+    let homeLink;
+    let home = location.origin + location.pathname;
+    if (location.pathname.endsWith('.html')){
+      home = location.origin + location.pathname.substring(0, location.pathname.lastIndexOf('/'));
+    }
+    homeLink = document.querySelector('nav a');
+    homeLink.setAttribute('href', home);
+    homeLink = document.querySelector('#footer a');
+    homeLink.setAttribute('href', home);
+  }
+
   /**
    * Restaurant image URL.
    */
