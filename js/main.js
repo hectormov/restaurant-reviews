@@ -162,6 +162,7 @@ createRestaurantHTML = (restaurant) => {
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
   //Included this line to add Alt attribute to the main page restaurant's pictures.
   image.setAttribute('alt','Restaurant Picture');
+  image.setAttribute('aria-label',`View details of ${restaurant.name} restaurant`);
   li.append(image);
 
   const name = document.createElement('h1');
